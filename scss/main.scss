@@ -1,0 +1,200 @@
+// ====================================================
+//  Theming Bootstrap
+// ====================================================
+
+$theme-colors: (
+    "primary": #3498DB,
+    "secondary": #18BC9C,
+    "light": #F5F5F5
+);
+
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1400px
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// ====================================================
+//  Fonts
+// ====================================================
+
+// Font Awesome
+$fa-font-path: "../webfonts";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+
+// Montserrat
+@font-face {
+    font-family: Montserrat;
+    src: url("../webfonts/Montserrat-Medium.ttf");
+}
+
+// ====================================================
+//  Custom Styles
+// ====================================================
+
+// ================ GLOBAL ================
+$primary: #3498DB;
+$secondary: #18BC9C;
+$light: #F5F5F5;
+
+body, h1, h2 {
+    font-family: Montserrat;
+    font-weight: 500;
+}
+
+.big-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+// ================ HEADER ================
+header {
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80vh;
+        clip-path: polygon(0 0, 100% 0, 100% 40%, 0 90%);
+        background-color: $secondary;
+        z-index: -1;
+    }
+
+    .big-container {
+        padding: 35px 0;
+    }
+
+    h1,
+    a {
+        font-size: 30px;
+        color: $light;
+    }
+
+    a:hover {
+        color: $primary;
+    }
+}
+
+// ================ MAIN ================
+main {
+
+    // Homepage & Event page
+    .big-container {
+        background-color: $light;
+        border-radius: 3px;
+        position: relative;
+
+        @include media-breakpoint-down(md) {
+            padding: 0 15px;
+        }
+    }
+
+    h2 {
+        font-size: 25px;
+        padding: 60px 0 10px 0;
+    }
+
+    hr {
+        width: 50px;
+        height: 1px;
+        background-color: #343a40;
+        margin-bottom: 60px;
+    }
+
+    .hr-bottom {
+        padding: 30px 0;
+    }
+
+    // Just Event page
+    .eventpage {
+        .back-btn {
+            position: absolute;
+            color: $secondary;
+            font-size: 30px;
+            padding: 10px;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+
+        .container {
+            min-height: 600px;
+        }
+
+        .hero {
+
+            .left,
+            .right {
+                @include media-breakpoint-down(lg) {
+                    width: 100%;
+                    text-align: center;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        .hero-img {
+            max-height: 400px;
+        }
+
+        .desc {
+            word-wrap: break-word;
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    // Just Homepage
+    .homepage {
+        .separator {
+            margin: 10px auto;
+            width: 100%;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.2);
+
+            @include media-breakpoint-up(lg) {
+                display: none;
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            padding-bottom: 60px;
+
+            li {
+                padding: 10px 0;
+
+                &:hover {
+                    background-color: $primary;
+                }
+
+                &:hover a {
+                    color: $light;
+                }
+            }
+
+            a {
+                color: #000;
+
+                &:hover {
+                    color: #000;
+                }
+            }
+        }
+    }
+}

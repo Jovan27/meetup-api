@@ -1,0 +1,15 @@
+<%- include partials/header %>
+    <main>
+        <div class="big-container text-center homepage">
+            <h2>Upcoming Meetups in Belgrade</h2>
+            <hr class="hr-top">
+            <ul>
+            <% events.forEach((event, index) => { %>
+                <li><a href="/event/<%= index %>"><%= event.name + " - " + event.local_date %></a></li>
+                <div class="separator"></div>
+            <% }); %>
+            </ul>
+            <hr class="hr-bottom">
+        </div>
+    </main>
+<%- include partials/footer %>

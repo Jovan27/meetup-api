@@ -1,0 +1,27 @@
+<%- include partials/header %>
+    <main>
+        <div class="big-container mb-5 eventpage">
+            <a href="/"><i class="fas fa-arrow-circle-left back-btn"></i></a>
+            <div class="container text-wrap">
+                <h2 class="text-center"><%= event.name %></h2>
+                <hr class="hr-top">
+                <% if (typeof event.featured_photo != 'undefined' ) { %>
+                <div class="hero d-flex flex-wrap justify-content-center mb-5">
+                    <div class="left"><img class="img-fluid hero-img mr-4" src="<%= event.featured_photo.highres_link %>" alt=""></div>
+                <% } else { %>
+                <div class="hero text-center mb-5">
+                <% } %>
+                    <div class="right">
+                        <p><i class="far fa-calendar-alt"></i> <%= event.local_date%> <i class="far fa-clock ml-3"></i> <%= event.local_time %></p>
+                        <p><i class="fas fa-map-marker-alt"></i> <%= event.venue.name %><br><%= event.venue.city + ", " + event.venue.localized_country_name  %></p>
+                        <a href="<%= event.link %>" target="_blank" class="btn btn-primary">Attend</a>
+                    </div>
+                </div>
+                <div class="desc pb-5">
+                    <%- event.description %>
+                </div>
+            </div>
+            <hr class="hr-bottom">
+        </div>
+    </main>
+<%- include partials/footer %>
