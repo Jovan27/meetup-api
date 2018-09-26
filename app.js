@@ -25,6 +25,9 @@ app.get("/", (req, res) => {
     });
 });
 
+// Izmena
+func bla bla bla
+
 app.get("/event/:index", (req, res) => {
     let eventIndex = req.params.index;
     if(upcomingEvents.events[eventIndex]){
